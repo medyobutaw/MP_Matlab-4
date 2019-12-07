@@ -10,12 +10,12 @@ elseif h < 0
     error('Initial Height must not be less than 0.')
 end
 
-t1 = (sqrt((v*sind(a))^2 - 2*y*h) - v*sind(a))/y;
-if t1<=0
-    t1 = (-sqrt((v*sind(a))^2 - 2*y*h) - v*sind(a))/y;
+tmax = (sqrt((v*sind(a))^2 - 2*y*h) - v*sind(a))/y;
+if tmax<=0
+    tmax = (-sqrt((v*sind(a))^2 - 2*y*h) - v*sind(a))/y;
 end
 
-t = 0:0.01:t1;
+t = 0:0.01:tmax;
 X = (v.*cosd(a).*(t)) + ((1./2).*(x).*(t.^2));
 Y = (h + v.*sind(a).*(t)) + ((1./2).*(y).*(t.^2));
 
